@@ -3,10 +3,7 @@
     <fullName>Contact_Number__c</fullName>
     <externalId>false</externalId>
     <label>Contact Number</label>
-    <precision>10</precision>
     <required>false</required>
-    <scale>0</scale>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
-    <unique>false</unique>
+    <type>Phone</type>
 </CustomField>
