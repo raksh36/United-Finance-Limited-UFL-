@@ -1,5 +1,5 @@
 <template>
-    <div class="slds-align_absolute-center">
+    <div class="slds-align_absolute-center slds-button_stretch">
         <lightning-button variant="brand-outline" label="APPLY NOW" title="Apply Now" onclick={handleClick} class="slds-var-m-left_x-small"></lightning-button>
     </div>
         <!--Use template if:true to display/hide popup based on isModalOpen value--> 
@@ -25,7 +25,10 @@
                             <lightning-messages> </lightning-messages>
                             <div class="slds-grid">
                                 <div class="slds-col slds-size_1-of-2">
+                                    <template if:true={hideInputField}>
                                     <lightning-input-field field-name="Loan_Products__c" value={applyNow}> </lightning-input-field>
+                                    <lightning-input-field field-name="Customer__c" value={ContactId}> </lightning-input-field>
+                                    </template>
                                     <lightning-input-field field-name="Aadhar_Number__c" required="true"> </lightning-input-field>
                                     <lightning-input-field field-name="PAN_Card__c" required="true"> </lightning-input-field>
                                     <lightning-input-field field-name="Loan_Purpose__c" required="true"> </lightning-input-field>
@@ -43,7 +46,7 @@
                         <lightning-button
                             class="slds-var-m-top_small"
                             type="submit"
-                            label="Create new"
+                            label="Create Loan Request"
                             variant="brand"
                             onclick={submitDetails}
                         >

@@ -1,25 +1,35 @@
-import { LightningElement, api, track, wire } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import Id from '@salesforce/user/Id';
-import basePath from '@salesforce/community/basePath';
 import { NavigationMixin } from 'lightning/navigation';
+import getContactId from '@salesforce/apex/retrieveContactId.retrieveContactId';
 
-export default class HyperLinkProducts extends LightningElement {
+
+export default class HyperLinkProducts extends NavigationMixin(LightningElement) {
     @api applyNow;
     @track isModalOpen = false;
-    @wire(basePath) pageRef;
-    userId = Id;
+    hideInputField = false;
+    @track userId = Id;
+    @track ContactId;
+    @track useName;
 
     handleClick(){
-        if(!this.userId){
-            this[NavigationMixin.GenerateUrl]({
-                type: 'standard__webPage',
-                attributes: {
-                    url: this.pageref+'/login/'
-                }
-            }).then(generatedUrl => {
-                window.open(generatedUrl);
+        getContactId({ userId: this.userId })
+            .then(result => {
+                this.ContactId = result;
+            })
+            .catch(error => {
+                console.error(error);
             });
-        }
+        if(!this.userId){
+            const config = {
+				type: 'comm__loginPage',
+                attributes: {
+                    actionName: 'login'
+				}
+			};
+			this[NavigationMixin.Navigate](config);
+		}
+
         this.isModalOpen = true;
     }
     closeModal() {

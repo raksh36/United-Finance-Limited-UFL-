@@ -53,7 +53,8 @@ global User createUser(Id portalId, Auth.UserData data){
         System.debug('Created contact: '+ contactId);
         
         // You'd likely use other logic to assign the Profile
-        Profile p = [SELECT Id FROM profile WHERE name=:EXTERNAL_USER_PROFILE];
+        //Profile p = [SELECT Id FROM profile WHERE name=:EXTERNAL_USER_PROFILE];00e5j000001YBa3AAG
+        Profile p = [SELECT Id FROM profile WHERE Id='00e5j000000URGp'];
         System.debug('Found profile: '+ p);
 
         // Keeping it modular, we initialize the user in another method
