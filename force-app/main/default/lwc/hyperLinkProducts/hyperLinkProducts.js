@@ -42,6 +42,7 @@ export default class HyperLinkProducts extends NavigationMixin(LightningElement)
     handleSuccess(){
         const event = new ShowToastEvent({
             title: 'Success!',
+            variant:'success',
             message:
                 'Created Loan Application Successfully!',
         });
