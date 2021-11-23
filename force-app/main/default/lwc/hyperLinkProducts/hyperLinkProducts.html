@@ -3,6 +3,7 @@
         <lightning-button variant="brand-outline" label="APPLY NOW" title="Apply Now" onclick={handleClick} class="slds-var-m-left_x-small"></lightning-button>
     </div>
         <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+    <template if:true={userId}>
         <template if:true={isModalOpen}>
             <!-- Modal/Popup Box LWC starts here -->
             <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
@@ -52,4 +53,5 @@
             </section>
             <div class="slds-backdrop slds-backdrop_open"></div>
         </template>
+    </template>
 </template>
