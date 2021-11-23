@@ -3,10 +3,10 @@
 **/
 global class SimpleFacebookRegistrationHandler implements Auth.RegistrationHandler{
     
-    private static final String ORG_SUFFIX = '.sso.badge.org';
-    private static final String DEFAULT_ACCOUNTNAME = 'Customers';
-    private static final String EXTERNAL_USER_PROFILE = 'Customers';
-    private static final String INTERNAL_USER_PROFILE = 'Standard User';    
+    private static final String ORG_SUFFIX = '.sso.ufl.com';
+    private static final String DEFAULT_ACCOUNTNAME = 'UFL Customers';
+    private static final String EXTERNAL_USER_PROFILE = 'Customer Community User';
+    private static final String INTERNAL_USER_PROFILE = 'Standard User';   
     
 /**
  * Let anyone register as long as the required fields are supplied
