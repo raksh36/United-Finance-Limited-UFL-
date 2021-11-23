@@ -2,7 +2,7 @@ import { LightningElement, api, track } from 'lwc';
 import Id from '@salesforce/user/Id';
 import { NavigationMixin } from 'lightning/navigation';
 import getContactId from '@salesforce/apex/retrieveContactId.retrieveContactId';
-
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class HyperLinkProducts extends NavigationMixin(LightningElement) {
     @api applyNow;
@@ -38,5 +38,13 @@ export default class HyperLinkProducts extends NavigationMixin(LightningElement)
     submitDetails() {     
         this.template.querySelector('lightning-record-edit-form').submit();
         this.isModalOpen = false;
+    }
+    handleSuccess(){
+        const event = new ShowToastEvent({
+            title: 'Success!',
+            message:
+                'Created Loan Application Successfully!',
+        });
+        this.dispatchEvent(event);
     }
 }
