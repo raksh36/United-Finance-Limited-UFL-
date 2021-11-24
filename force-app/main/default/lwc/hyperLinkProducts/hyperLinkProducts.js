@@ -29,8 +29,9 @@ export default class HyperLinkProducts extends NavigationMixin(LightningElement)
 			};
 			this[NavigationMixin.Navigate](config);
 		}
-
-        this.isModalOpen = true;
+        else{
+            this.isModalOpen = true;
+        }        
     }
     closeModal() {
         this.isModalOpen = false;
