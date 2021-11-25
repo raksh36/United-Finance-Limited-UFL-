@@ -1,0 +1,67 @@
+<template>
+    <template if:true={loanDetails}>
+    <div class="slds-var-m-around_small">
+    <lightning-card  title="Your Personal Details are here" icon-name="standard:user">
+
+        <lightning-record-view-form record-id={loanDetails}  object-api-name="Loan__c">
+
+        <lightning-messages> </lightning-messages>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Aadhar_Number__c"> </lightning-output-field>
+                <lightning-output-field field-name="PAN_Card__c"> </lightning-output-field>
+                <lightning-output-field field-name="Account_Number__c"> </lightning-output-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Contact_Number__c"> </lightning-output-field>
+                <lightning-output-field field-name="Aadhar_Verified__c"> </lightning-output-field>
+                <lightning-output-field field-name="CIBIL_Score__c"> </lightning-output-field>
+            </div>
+        </div>
+        
+        </lightning-record-view-form>
+        
+    </lightning-card>
+    </div>
+    </template>
+    <template if:true={loanDetails}>
+    <div class="slds-var-m-around_small">
+    <lightning-card  title="Your Loan Details are here" icon-name="standard:user">
+        <template if:true={loanDetails}>
+        <lightning-record-view-form record-id={loanDetails}  object-api-name="Loan__c">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Loan_Products__c"> </lightning-output-field>
+                    <lightning-output-field field-name="Loan_Amount__c"> </lightning-output-field>                    
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Interest_Rate__c"> </lightning-output-field>
+                    <lightning-output-field field-name="Loan_Purpose__c"> </lightning-output-field>                    
+                </div>
+            </div>
+        </lightning-record-view-form>
+        </template>
+    </lightning-card>
+    </div>
+    </template>
+    <template if:true={loanDetails}>
+        <div class="slds-var-m-around_small">
+        <lightning-card  title="Your Loan Status is here" icon-name="standard:user">
+            <template if:true={loanDetails}>
+            <lightning-record-view-form record-id={loanDetails}  object-api-name="Loan__c">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-output-field field-name="Installment_Payment_Date__c"> </lightning-output-field>
+                        <lightning-output-field field-name="Installment_Payment_Due_Date__c"> </lightning-output-field>                        
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-output-field field-name="Loan_Request__c"> </lightning-output-field>
+                        <lightning-output-field field-name="Default_By__c"> </lightning-output-field>
+                    </div>
+                </div>
+            </lightning-record-view-form>
+            </template>
+        </lightning-card>
+        </div>
+        </template>
+</template>
